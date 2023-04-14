@@ -179,6 +179,9 @@ endif(MINGW)
 add_library(zlibstatic STATIC ${ZLIB_SRCS} ${ZLIB_ASMS} ${ZLIB_PUBLIC_HDRS} ${ZLIB_PRIVATE_HDRS})
 target_include_directories(zlibstatic SYSTEM PUBLIC .)
 
+if(NOT MSVC)
+  target_compile_options(zlibstatic PRIVATE -Wno-deprecated-non-prototype)
+endif()
 
 if(UNIX)
     # On unix-like platforms the library is almost always called libz
