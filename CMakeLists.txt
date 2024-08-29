@@ -204,6 +204,8 @@ if(NOT SKIP_INSTALL_FILES AND NOT SKIP_INSTALL_ALL )
     install(FILES ${ZLIB_PC} DESTINATION "${INSTALL_PKGCONFIG_DIR}")
 endif()
 
+add_library(ZLIB::ZLIB ALIAS zlibstatic)
+
 #============================================================================
 # Example binaries
 #============================================================================
